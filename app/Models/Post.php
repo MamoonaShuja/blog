@@ -13,7 +13,9 @@ class Post extends Model
         'title',
         'description',
         'featured_image',
-        'slug'
+        'slug',
+        'user_id',
+        'categories_id'
     ];
     public function sluggable(): array{
 
@@ -22,5 +24,14 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
