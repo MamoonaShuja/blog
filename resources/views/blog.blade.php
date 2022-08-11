@@ -14,7 +14,6 @@
             <p>{{$post->matter('excrept')}}</p>
             <small>{{$post->matter('date')}}</small>
         @endforeach
-
     </div>
 
 </div>
