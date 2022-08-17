@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -25,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        dd("create");
+        return view('posts.create');
     }
 
     /**
@@ -45,9 +46,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($slug)
     {
-        //
+        $post = Post::whereSlug($slug)->first();
+        return view('posts.show')->with('post' , $post);
     }
 
     /**
