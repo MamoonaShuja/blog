@@ -20,10 +20,8 @@
                                 <x-label for="title" :value="__('Title')" />
                                 <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
                             </div>
-                            <div class="col-md-6 col-lg-4 col-sm-12">
-                                <x-label for="title" :value="__('Title')" />
-                                <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
-                            </div>
+                            <br>
+                            <textarea id="editor"></textarea>
                         </div>
 
                         <x-button class="my-4">
