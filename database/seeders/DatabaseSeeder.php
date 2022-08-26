@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
+use App\Models\Book;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,6 +20,8 @@ class DatabaseSeeder extends Seeder
     {
          User::factory(10)->create();
          Post::factory(50)->create();
+         Author::factory(50)->create();
+         Book::factory(50)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
