@@ -18,9 +18,11 @@
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                         {{ __('Posts') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
-                        {{ __('New Post') }}
-                    </x-nav-link>
+                    @admin
+                        <x-nav-link :href="route('admin.posts.create')" :active="request()->routeIs('posts.create')">
+                            {{ __('New Post') }}
+                        </x-nav-link>
+                    @endadmin
                     <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')">
                         {{ __('Books') }}
                     </x-nav-link>

@@ -19,9 +19,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts' , PostController::class)->except(['show']);
-Route::resource('books' , BookController::class);
-Route::get('post/{slug}' , [PostController::class , 'show'])->name('posts.show');
+Route::middleware('auth')->group(function (){
+
+
+    Route::prefix('admin')->name('admin.')->middleware('admin')->group(function (){
+//        Posts
+        Route::name('posts.')->group(function (){
+            Route::get('posts/create' , [PostController::class , 'create'])->name('create');
+            Route::post('posts/store' , [PostController::class , 'store'])->name('store');
+        });
+
+    });
+
+    Route::get('posts' , [PostController::class , 'index'])->name('posts.index');
+    Route::resource('books' , BookController::class);
+    Route::get('post/{slug}' , [PostController::class , 'show'])->name('posts.show');
+
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
